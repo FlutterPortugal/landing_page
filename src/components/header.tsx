@@ -3,7 +3,6 @@ import styled from "styled-components"
 import logo from "../images/logo.jpg"
 
 const HeaderWrapper = styled.header`
-  background: #fff;
   padding: 0.5em 0.5em;
   & * {
     cursor: default;

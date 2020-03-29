@@ -6,13 +6,14 @@ import { BigGalo } from "../components/big-galo"
 
 const BigLogo: React.FC = () => {
   const Wrapper = styled.div`
-    padding: 4em 0;
+    padding: 2em 0;
     display: flex;
+    flex: 1;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     @media (max-width: 750px) {
-      font-size: 0.8em;
+      font-size: 0.6em;
     }
   `
   const Title = styled.h1`
@@ -40,8 +41,8 @@ const BigLogo: React.FC = () => {
 }
 
 const Separator = styled.hr`
-  background: hsl(0, 0%, 89%);
-  max-width: 80%;
+  background: hsla(0, 0%, 89%, 0.49);
+  width: 80%;
   margin: 0 auto 2em;
 `
 
@@ -67,16 +68,19 @@ const SocialLink: React.FC<{
       border-bottom: solid 1px #e1e1e1;
       padding: 2rem;
       &:last-child {
-      border-bottom-color: transparent;
+        border-bottom-color: transparent;
+      }
     }
-    }
-`
+  `
 
   const Title = styled.h3`
     color: #054d9c;
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    @media (max-width: 750px) {
+      font-size: 1.5em;
+    }
   `
 
   const Description = styled.p`
@@ -88,20 +92,22 @@ const SocialLink: React.FC<{
   `
   const Button = styled.a`
     display: block;
-     color: #fff;
-     text-decoration: none;
-     background-color: #054d9c;
-     padding: 0.5em 1.325em;
-     border-radius: 10px;
-     font-weight: 700;
-     font-size: 0.725em;
-`
+    color: #fff;
+    text-decoration: none;
+    background-color: #054d9c;
+    padding: 0.5em 1.325em;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.725em;
+  `
 
   return (
     <Wrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      <Button href={buttonRef} title={buttonLabel}>{buttonLabel}</Button>
+      <Button href={buttonRef} title={buttonLabel}>
+        {buttonLabel}
+      </Button>
     </Wrapper>
   )
 }
@@ -112,6 +118,10 @@ const Paragraph = styled.p`
   font-size: 1.5em;
   text-align: center;
   margin-bottom: 1.5em;
+  @media (max-width: 750px) {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+  }
 `
 
 const Links: React.FC = () => {
@@ -120,6 +130,7 @@ const Links: React.FC = () => {
     justify-content: center;
     align-items: center;
     flex-wrap: no-wrap;
+    flex: 1;
     margin: 4em 0;
     @media (max-width: 750px) {
       flex-direction: column;
@@ -158,7 +169,6 @@ const IndexPage: React.FC = () => (
     <BigLogo />
     <Separator />
     <Paragraph>Join the community!</Paragraph>
-    <Separator />
     <Links />
   </Layout>
 )

@@ -6,12 +6,14 @@ interface Props {
   description?: string
   lang?: string
   meta?: any[]
+  title?: string
 }
 
 export const SEO: React.FC<Props> = ({
   meta = [],
   description = ``,
   lang = `en`,
+  title = ``,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -28,14 +30,14 @@ export const SEO: React.FC<Props> = ({
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const title = site.siteMetadata.title
+  const metaTitle = title || site.siteMetadata.title
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={metaTitle}
       meta={[
         {
           name: `description`,
@@ -43,7 +45,7 @@ export const SEO: React.FC<Props> = ({
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:description`,
@@ -71,7 +73,7 @@ export const SEO: React.FC<Props> = ({
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           name: `twitter:description`,
@@ -83,7 +85,7 @@ export const SEO: React.FC<Props> = ({
         },
         {
           itemprop: `name`,
-          content: title,
+          content: metaTitle,
         },
         {
           itemprop: `description`,

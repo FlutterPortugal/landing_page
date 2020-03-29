@@ -6,13 +6,11 @@ interface Props {
   description?: string
   lang?: string
   meta?: any[]
-  title: string
 }
 
 export const SEO: React.FC<Props> = ({
   meta = [],
   description = ``,
-  title,
   lang = `en`,
 }) => {
   const { site } = useStaticQuery(
@@ -30,6 +28,7 @@ export const SEO: React.FC<Props> = ({
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const title = site.siteMetadata.title
 
   return (
     <Helmet
@@ -37,7 +36,6 @@ export const SEO: React.FC<Props> = ({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -56,8 +54,16 @@ export const SEO: React.FC<Props> = ({
           content: `website`,
         },
         {
+          property: `og:url`,
+          content: `https://flutter.pt`,
+        },
+        {
+          name: `og:image`,
+          content: `https://i.imgur.com/BJ6nJT5.png`,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -70,6 +76,22 @@ export const SEO: React.FC<Props> = ({
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: `https://i.imgur.com/BJ6nJT5.png`,
+        },
+        {
+          itemprop: `name`,
+          content: title,
+        },
+        {
+          itemprop: `description`,
+          content: metaDescription,
+        },
+        {
+          itemprop: `image`,
+          content: `https://i.imgur.com/BJ6nJT5.png`,
         },
       ].concat(meta)}
     />

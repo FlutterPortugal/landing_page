@@ -165,7 +165,7 @@ const Links: React.FC = () => {
 
 const IndexPage: React.FC = () => (
   <Layout>
-    <SEO title="Flutter PT" />
+    <SEO />
     <BigLogo />
     <Separator />
     <Paragraph>Join the community!</Paragraph>

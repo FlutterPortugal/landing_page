@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Flutter Portugal`,
+    title: `Flutter Portugal Community`,
     description: `Flutter Portugal is a Community dedicated to learn, discuss and spread everything about Flutter`,
-    author: `@__caraujo__`,
+    author: `@FlutterPortugal`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
